@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://studiotecnicomotta.github.io/sitemap.xml
