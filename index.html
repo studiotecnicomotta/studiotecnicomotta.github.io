@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Studio Motta - Ingegneria e Architettura. Progettazione, ristrutturazioni, pratiche edilizie, BIM, consulenze tecniche e CTU." />
+  <meta name="robots" content="index, follow" />
+  <meta name="google-site-verification" content="hRPlawk3w3zG--WfaVGgAFxtejX8nq4g2rD4C3P10nk" />
+  <meta property="og:title" content="Studio Motta | Ingegneria e Architettura" />
+  <meta property="og:description" content="Progettazione, ristrutturazioni, pratiche edilizie, BIM e consulenze tecniche." />
+  <meta property="og:type" content="website" />
+  <title>Studio Motta | Ingegneria e Architettura</title>
+
+  <style>
+    :root{
+      --bg:#f5f2ec;
+      --paper:#fffdf9;
+      --ink:#1f2528;
+      --muted:#6d7477;
+      --line:#ded8cf;
+      --accent:#8c6a4b;
+      --accent-dark:#654a35;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(var(--max), calc(100% - 40px));margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(245,242,236,.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-family:Georgia,serif;font-size:1.45rem;letter-spacing:.02em}
+    .brand small{display:block;font-family:Inter,sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+    .menu{display:flex;gap:24px;align-items:center;font-size:.95rem}
+    .menu a:hover{color:var(--accent)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:13px 20px;border-radius:999px;border:1px solid var(--ink);
+      transition:.2s ease;background:transparent;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{background:var(--ink);color:white;border-color:var(--ink)}
+    .hero{padding:96px 0 70px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end}
+    .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.76rem;color:var(--accent-dark);font-weight:700}
+    h1,h2,h3{font-family:Georgia,serif;font-weight:500;line-height:1.08;margin:0}
+    h1{font-size:clamp(3rem,7vw,6.3rem);letter-spacing:-.04em;max-width:950px}
+    .hero p{font-size:1.14rem;color:var(--muted);max-width:650px;margin:28px 0}
+    .hero-card{
+      background:var(--paper);border:1px solid var(--line);padding:32px;
+      min-height:350px;display:flex;flex-direction:column;justify-content:flex-end;
+      border-radius:2px;
+      background-image:linear-gradient(rgba(31,37,40,.12),rgba(31,37,40,.65)),
+        url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80');
+      background-size:cover;background-position:center;
+      color:white;
+    }
+    .hero-card .tag{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;opacity:.8}
+    .hero-card h3{font-size:2rem;margin-top:8px}
+    section{padding:86px 0;border-top:1px solid var(--line);scroll-margin-top:82px}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:38px}
+    .section-head h2{font-size:clamp(2.4rem,4.5vw,4.3rem);letter-spacing:-.035em}
+    .section-head p{max-width:520px;color:var(--muted);margin:0}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+    .service{padding:30px;min-height:250px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,253,249,.55)}
+    .num{font-size:.75rem;color:var(--accent);letter-spacing:.14em}
+    .service h3{font-size:1.55rem;margin:42px 0 12px}
+    .service p{color:var(--muted);margin:0}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+    .about-box{background:var(--ink);color:white;padding:40px;min-height:420px;display:flex;flex-direction:column;justify-content:space-between}
+    .about-box h3{font-size:2.2rem}
+    .about-text h2{font-size:clamp(2.4rem,4vw,4rem);margin-bottom:28px}
+    .about-text p{color:var(--muted);font-size:1.04rem}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .step{padding:28px;background:var(--paper);border:1px solid var(--line)}
+    .step strong{font-family:Georgia,serif;font-size:1.4rem;font-weight:500}
+    .step p{color:var(--muted);margin-bottom:0}
+    .cta{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;background:var(--accent-dark);color:white;padding:48px}
+    .cta h2{font-size:clamp(2.4rem,5vw,4.5rem)}
+    .cta p{margin:14px 0 0;opacity:.82}
+    .cta .btn{border-color:white;color:white}
+    footer{padding:44px 0 26px}
+    .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px}
+    footer p, footer a{color:var(--muted)}
+    .fine{margin-top:38px;padding-top:20px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted);display:flex;justify-content:space-between;gap:20px}
+    @media (max-width:900px){
+      .menu a:not(.btn){display:none}
+      .hero-grid,.about-grid,.footer-grid,.cta{grid-template-columns:1fr}
+      .services,.steps{grid-template-columns:1fr}
+      .hero{padding-top:70px}
+      .hero-card{min-height:280px}
+      .section-head{display:block}
+      .section-head p{margin-top:20px}
+      .cta{padding:34px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top">
+        Studio Motta
+        <small>Ingegneria · Architettura</small>
+      </a>
+      <div class="menu">
+        <a href="#servizi">Servizi</a>
+        <a href="#studio">Lo studio</a>
+        <a href="#metodo">Metodo</a>
+        <a href="#guide">Guide</a>
+        <a class="btn" href="#contatti">Contatti</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="border-top:none">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Progettazione · Tecnica · Cura del dettaglio</div>
+        <h1>Spazi migliori, soluzioni concrete.</h1>
+        <p>
+          Studio di ingegneria e architettura dedicato alla progettazione,
+          alla ristrutturazione e alla gestione tecnica dell’immobile,
+          dalla prima analisi fino alla realizzazione.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn primary" href="#contatti">Richiedi una consulenza</a>
+          <a class="btn" href="#servizi">Scopri i servizi</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="tag">Studio tecnico multidisciplinare</div>
+        <h3>Progetto, conformità e gestione dell’intervento.</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="servizi">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Servizi</div>
+          <h2>Un unico studio,<br>più competenze.</h2>
+        </div>
+        <p>
+          Affianchiamo privati, imprese e professionisti con un approccio integrato:
+          progettazione, pratiche amministrative, modellazione BIM e consulenza tecnica.
+        </p>
+      </div>
+
+      <div class="services">
+        <article class="service">
+          <div class="num">01</div>
+          <h3>Ristrutturazioni</h3>
+          <p>Progetto architettonico, ridistribuzione degli spazi, finiture, coordinamento tecnico e assistenza durante i lavori.</p>
+        </article>
+        <article class="service">
+          <div class="num">02</div>
+          <h3>Pratiche edilizie</h3>
+          <p>CILA, SCIA, Permesso di Costruire, regolarizzazioni, variazioni catastali e supporto tecnico-amministrativo.</p>
+        </article>
+        <article class="service">
+          <div class="num">03</div>
+          <h3>Progettazione BIM</h3>
+          <p>Modellazione informativa, restituzione digitale dell’esistente e coordinamento progettuale con workflow BIM.</p>
+        </article>
+        <article class="service">
+          <div class="num">04</div>
+          <h3>Consulenze tecniche</h3>
+          <p>Perizie, analisi di difetti e danni, infiltrazioni, quadri fessurativi, verifiche tecniche e supporto documentale.</p>
+        </article>
+        <article class="service">
+          <div class="num">05</div>
+          <h3>CTU e CTP</h3>
+          <p>Consulenza tecnica in ambito giudiziario e assistenza tecnica di parte con impostazione chiara, documentata e verificabile.</p>
+        </article>
+        <article class="service">
+          <div class="num">06</div>
+          <h3>Sicurezza nei cantieri</h3>
+          <p>Attività di coordinamento della sicurezza in fase di progettazione ed esecuzione e supporto nella gestione del cantiere.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="studio">
+    <div class="wrap about-grid">
+      <div class="about-box">
+        <div class="eyebrow" style="color:#d7c0aa">Lo studio</div>
+        <h3>Architettura e tecnica devono parlare la stessa lingua.</h3>
+        <p style="opacity:.78;margin:0">
+          Un approccio concreto: leggere bene l’esistente, definire le priorità,
+          progettare con precisione e accompagnare il cliente nelle decisioni.
+        </p>
+      </div>
+      <div class="about-text">
+        <div class="eyebrow">Studio Motta</div>
+        <h2>Dal problema alla soluzione, con metodo.</h2>
+        <p>
+          Lo studio segue interventi su immobili residenziali, commerciali e professionali,
+          con particolare attenzione alla ristrutturazione, alla conformità edilizia,
+          alla gestione delle pratiche e alla consulenza tecnica.
+        </p>
+        <p>
+          L’obiettivo è rendere ogni fase leggibile per il cliente: costi, documenti,
+          criticità tecniche e scelte progettuali vengono affrontati in modo ordinato,
+          evitando soluzioni improvvisate.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodo">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Metodo</div>
+          <h2>Tre passaggi,<br>senza complicazioni.</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <strong>01 · Analisi</strong>
+          <p>Sopralluogo, raccolta documenti e verifica delle condizioni tecniche e amministrative.</p>
+        </div>
+        <div class="step">
+          <strong>02 · Progetto</strong>
+          <p>Definizione della soluzione, delle lavorazioni, degli elaborati e degli eventuali adempimenti.</p>
+        </div>
+        <div class="step">
+          <strong>03 · Realizzazione</strong>
+          <p>Assistenza nelle fasi operative, coordinamento tecnico e verifica della corretta esecuzione.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="guide">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Guide tecniche</div>
+          <h2>Risorse pratiche<br>per professionisti.</h2>
+        </div>
+        <p>
+          Approfondimenti operativi su CTU, consulenze tecniche, edilizia e gestione degli incarichi professionali.
+        </p>
+      </div>
+
+      <div class="steps">
+        <article class="step">
+          <div class="num">GUIDA 01</div>
+          <strong>Prima nomina CTU edilizia: cosa fare passo dopo passo</strong>
+          <p>
+            Dalla lettura del quesito al sopralluogo, fino alla relazione e al deposito:
+            una guida pratica pensata per chi affronta il primo incarico.
+          </p>
+          <p style="margin-top:20px">
+            <a class="btn" href="#prima-nomina-ctu">Leggi la guida</a>
+          </p>
+        </article>
+
+        <article class="step">
+          <div class="num">IN ARRIVO</div>
+          <strong>Verbale di sopralluogo CTU</strong>
+          <p>
+            Cosa annotare, come organizzare le operazioni peritali e quali elementi non dimenticare.
+          </p>
+        </article>
+
+        <article class="step">
+          <div class="num">IN ARRIVO</div>
+          <strong>Come strutturare una relazione CTU</strong>
+          <p>
+            Un metodo semplice per rispondere al quesito in modo ordinato, verificabile e leggibile.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="prima-nomina-ctu">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Guida pratica CTU</div>
+          <h2>Prima nomina CTU edilizia:<br>cosa fare passo dopo passo</h2>
+        </div>
+        <p>
+          Una guida operativa per affrontare il primo incarico dalla lettura del quesito
+          fino al deposito della relazione.
+        </p>
+      </div>
+
+      <div style="max-width:860px">
+        <p>
+          Ricevere la prima nomina come Consulente Tecnico d’Ufficio è un momento importante,
+          ma può generare molti dubbi operativi: da dove partire, quali atti leggere,
+          come organizzare il sopralluogo, come gestire i CTP e come strutturare la relazione.
+        </p>
+
+        <h3 style="margin-top:34px">1. Leggere con attenzione incarico e quesito</h3>
+        <p>
+          La prima attività non è il sopralluogo. È la lettura dell’ordinanza di nomina,
+          del quesito e degli atti principali. Il quesito definisce il perimetro dell’attività:
+          conviene scomporlo in singole richieste operative.
+        </p>
+
+        <h3 style="margin-top:34px">2. Organizzare subito il fascicolo</h3>
+        <p>
+          Una CTU può produrre rapidamente molti documenti. È utile creare cartelle separate
+          per nomina e provvedimenti, atti di parte, documentazione tecnica, comunicazioni,
+          operazioni peritali, fotografie, elaborati, osservazioni dei CTP e relazione finale.
+        </p>
+
+        <h3 style="margin-top:34px">3. Studiare gli atti prima del sopralluogo</h3>
+        <p>
+          Prima delle operazioni peritali è opportuno ricostruire l’oggetto della controversia,
+          la cronologia, le posizioni delle parti, gli elaborati disponibili e gli eventuali
+          interventi già eseguiti. L’obiettivo è arrivare sapendo esattamente cosa verificare.
+        </p>
+
+        <h3 style="margin-top:34px">4. Preparare una checklist</h3>
+        <p>
+          Durante il sopralluogo vanno annotati locali interessati, dimensioni dei fenomeni,
+          materiali, misure, fotografie, eventuali impianti, riparazioni pregresse,
+          dichiarazioni delle parti e documenti acquisiti.
+        </p>
+
+        <h3 style="margin-top:34px">5. Documentare le operazioni peritali</h3>
+        <p>
+          Data, ora, luogo, presenti, attività svolte, misurazioni e documenti acquisiti
+          devono poter essere ricostruiti successivamente. Anche le fotografie vanno archiviate
+          con nomi e riferimenti chiari.
+        </p>
+
+        <h3 style="margin-top:34px">6. Distinguere i fatti dalle valutazioni</h3>
+        <p>
+          È importante separare ciò che è stato osservato da ciò che costituisce una conclusione
+          tecnica. Una lesione, ad esempio, è un dato rilevato; attribuirla a una determinata
+          causa richiede invece una motivazione tecnica.
+        </p>
+
+        <h3 style="margin-top:34px">7. Considerare ipotesi alternative e concause</h3>
+        <p>
+          Il consulente dovrebbe evitare conclusioni automatiche e verificare, nei limiti
+          dell’incarico, anche possibili cause concorrenti o spiegazioni alternative.
+        </p>
+
+        <h3 style="margin-top:34px">8. Scrivere la relazione seguendo il quesito</h3>
+        <p>
+          Una struttura efficace comprende: incarico, quesito, documenti esaminati,
+          operazioni peritali, stato dei luoghi, accertamenti, valutazioni tecniche,
+          risposte ai singoli punti del quesito, eventuale stima economica e conclusioni.
+        </p>
+
+        <h3 style="margin-top:34px">9. Gestire le osservazioni dei CTP</h3>
+        <p>
+          Le osservazioni dei consulenti di parte vanno affrontate con metodo:
+          osservazione, verifica e risposta motivata, mantenendo un tono tecnico e neutrale.
+        </p>
+
+        <h3 style="margin-top:34px">10. Controllo finale prima del deposito</h3>
+        <p>
+          Prima del deposito conviene verificare che tutti i punti del quesito abbiano risposta,
+          che allegati e fotografie siano coerenti, che calcoli e riferimenti siano corretti
+          e che le osservazioni dei CTP siano state considerate.
+        </p>
+
+        <div style="margin-top:42px;padding:30px;background:var(--accent-dark);color:white">
+          <div class="eyebrow" style="color:#ead8c6">Risorsa gratuita</div>
+          <h3 style="font-size:2rem;margin:10px 0 12px">Checklist primo incarico CTU edilizia</h3>
+          <p style="opacity:.86">
+            Qui collegheremo la tua custom page Payhip con la checklist gratuita.
+          </p>
+          <a class="btn" style="border-color:white;color:white;margin-top:10px"
+             href="https://payhip.com/archchiaramotta/prima-nomina-ctu-edilizia" target="_blank" rel="noopener">
+             Vai alla checklist gratuita
+          </a>
+        </div>
+
+        <div style="margin-top:28px">
+          <h3 style="font-size:1.8rem">Kit pratico CTU edilizia</h3>
+          <p>
+            Per chi vuole una struttura più completa con schemi, modelli e materiali operativi.
+          </p>
+          <a class="btn" href="https://payhip.com/b/X3OSH" target="_blank" rel="noopener">
+            Scopri il Kit pratico CTU – €19,90
+          </a>
+        </div>
+
+        <p style="margin-top:36px">
+          <a class="btn" href="#guide">← Torna alle guide</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contatti">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <div class="eyebrow" style="color:#ead8c6">Contatti</div>
+          <h2>Hai un immobile o un problema tecnico da valutare?</h2>
+          <p>Scrivici per un primo confronto sul tuo intervento.</p>
+        </div>
+        <a class="btn" href="mailto:studiotecnico.ingarchmotta@gmail.com">Scrivi allo studio</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Studio Motta<small>Ingegneria · Architettura</small></div>
+        <p>Progettazione, ristrutturazioni, pratiche edilizie, BIM e consulenze tecniche.</p>
+      </div>
+      <div>
+        <strong>Contatti</strong>
+        <p>
+          Email: <a href="mailto:studiotecnico.ingarchmotta@gmail.com">studiotecnico.ingarchmotta@gmail.com</a><br>
+          Telefono: <a href="tel:+39095441413">095 441413</a><br>
+          Sede: Catania (CT), Sicilia
+        </p>
+      </div>
+      <div>
+        <strong>Sede operativa</strong>
+        <p>
+          Catania (CT), Sicilia<br>
+          Consulenze su appuntamento
+        </p>
+      </div>
+    </div>
+    <div class="fine">
+      <span>© <span id="year"></span> Studio Motta. Tutti i diritti riservati.</span>
+      <span>Privacy · Cookie</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
